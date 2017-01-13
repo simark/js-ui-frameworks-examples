@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello!</title>
+  </head>
+  <body>
+    <form>
+      <input id="my-input" value="Hello World!" oninput="textBoxChange()" />
+      <p>
+        The words are:
+        <ul id="my-list">
+          <li>Hello</li>
+          <li>World!</li>
+        </ul>
+      </p>
+    </form>
+    
+    <script>
+      function textBoxChange() {
+        var textBox = document.getElementById('my-input');
+        var list = document.getElementById('my-list');
+        var words = textBox.value.split(' ');
+        
+        /* Remove all existing children (list items) of our list from the DOM. */
+        while (list.firstChild != null) {
+          list.removeChild(list.firstChild);
+        }
+        
+        /* Create a list item DOM element for each word. */
+        for (var idx in words) {
+          var element = document.createElement('li');
+          var text = document.createTextNode(words[idx]);
+          
+          element.appendChild(text);
+          list.appendChild(element);
+        }
+      }
+    </script>
+  </body>
+</html>

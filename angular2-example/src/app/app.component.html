@@ -1,0 +1,7 @@
+<form #myForm="ngForm">
+  <input [(ngModel)]="textBoxModel" name="phrase" (input)="textBoxChange()" />
+  <p>The words are:</p>
+  <ul>
+    <li *ngFor="let word of words">{{ word }}</li>
+  </ul>
+</form>
